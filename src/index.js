@@ -25,3 +25,16 @@ export const getRandomeNumber = (min, max) => {
   const rand = Math.random() * (max - min) + min;
   return Math.round(rand);
 };
+
+export const finishGame = (userName, roundCount) => {
+  if (roundCount === 0) {
+    console.log(`Congratulations, ${userName}!`);
+  } else {
+    console.log(`Let's try again, ${userName}!`);
+  }
+};
+
+export const getUserName = () => {
+  const userName = readlineSync.question('May I have your name? ');
+  return userName;
+};

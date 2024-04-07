@@ -2,8 +2,10 @@ import welcomeUser from '../src/cli.js';
 import {
   askQuestion,
   compareAnswer,
+  finishGame,
   getAnswer,
   getRandomeNumber,
+  getUserName,
   numberOfRounds,
 } from '../src/index.js';
 
@@ -24,7 +26,8 @@ const playRound = () => {
 };
 
 export default () => {
-  const userName = welcomeUser();
+  const userName = getUserName();
+  welcomeUser(userName);
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   let roundCount = numberOfRounds;
@@ -38,9 +41,5 @@ export default () => {
     }
   }
 
-  if (roundCount === 0) {
-    console.log(`Congratulations, ${userName}!`);
-  } else {
-    console.log(`Let's try again, ${userName}!`);
-  }
+  finishGame(userName, roundCount);
 };
