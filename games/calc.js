@@ -4,13 +4,12 @@ import {
   compareAnswer,
   finishGame,
   getAnswer,
+  getRandomArrayOfNumbers,
   getRandomeNumber,
   getUserName,
   numberOfRounds,
 } from '../src/index.js';
 
-const minRandomNumber = 1;
-const maxRandomNumber = 100;
 const operations = ['+', '-', '*'];
 
 const getRandomeOperator = () => {
@@ -37,13 +36,13 @@ const getRightAnswer = (firstNum, secondNum, operator) => {
 };
 
 const playRound = () => {
-  const firstNum = getRandomeNumber(minRandomNumber, maxRandomNumber);
-  const secondNum = getRandomeNumber(minRandomNumber, maxRandomNumber);
+  const pair = getRandomArrayOfNumbers();
+  const [num1, num2] = pair;
   const operator = getRandomeOperator();
 
-  const correctAnswer = getRightAnswer(firstNum, secondNum, operator);
+  const correctAnswer = getRightAnswer(num1, num2, operator);
 
-  const example = `${firstNum} ${operator} ${secondNum}`;
+  const example = `${num1} ${operator} ${num2}`;
 
   askQuestion(example);
 

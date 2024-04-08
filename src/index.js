@@ -38,3 +38,13 @@ export const getUserName = () => {
   const userName = readlineSync.question('May I have your name? ');
   return userName;
 };
+
+export const getRandomArrayOfNumbers = (count = 2) => {
+  const min = 1;
+  const max = 100;
+  const numbers = [];
+  for (let i = 0; i < count; i += 1) {
+    numbers.push(getRandomeNumber(min, max));
+  }
+  return numbers;
+};
