@@ -1,11 +1,6 @@
 import readlineSync from 'readline-sync';
 import welcomeUser from './cli.js';
 
-const getUserName = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  return userName;
-};
-
 const askQuestion = (question) => console.log(`Question: ${question}`);
 
 const getUserAnswer = () => {
@@ -33,8 +28,7 @@ const finishGame = (userName, roundCount) => {
 };
 
 const playGame = (rules, playRound) => {
-  const userName = getUserName();
-  welcomeUser(userName);
+  const userName = welcomeUser();
   console.log(rules);
 
   let roundCount = 3;
