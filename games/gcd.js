@@ -1,13 +1,14 @@
-import welcomeUser from '../src/cli.js';
 import {
   askQuestion,
   compareAnswer,
   finishGame,
   getAnswer,
   getRandomArrayOfNumbers,
-  getUserName,
   numberOfRounds,
+  startGame,
 } from '../src/index.js';
+
+const rules = 'Find the greatest common divisor of given numbers.';
 
 const getGCD = (num1, num2) => {
   let a = num1 < num2 ? num2 : num1;
@@ -40,9 +41,7 @@ const playRound = () => {
 };
 
 export default () => {
-  const userName = getUserName();
-  welcomeUser(userName);
-  console.log('Find the greatest common divisor of given numbers.');
+  const userName = startGame(rules);
 
   let roundCount = numberOfRounds;
   while (roundCount > 0) {

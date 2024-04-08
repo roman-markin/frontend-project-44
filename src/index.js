@@ -1,6 +1,12 @@
 import readlineSync from 'readline-sync';
+import welcomeUser from './cli.js';
 
 export const numberOfRounds = 3;
+
+export const getUserName = () => {
+  const userName = readlineSync.question('May I have your name? ');
+  return userName;
+};
 
 export const askQuestion = (question) => console.log(`Question: ${question}`);
 
@@ -26,17 +32,19 @@ export const getRandomeNumber = (min, max) => {
   return Math.round(rand);
 };
 
+export const startGame = (rules) => {
+  const userName = getUserName();
+  welcomeUser(userName);
+  console.log(rules);
+  return userName;
+};
+
 export const finishGame = (userName, roundCount) => {
   if (roundCount === 0) {
     console.log(`Congratulations, ${userName}!`);
   } else {
     console.log(`Let's try again, ${userName}!`);
   }
-};
-
-export const getUserName = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  return userName;
 };
 
 export const getRandomArrayOfNumbers = (count = 2) => {

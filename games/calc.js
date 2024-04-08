@@ -1,4 +1,3 @@
-import welcomeUser from '../src/cli.js';
 import {
   askQuestion,
   compareAnswer,
@@ -6,11 +5,12 @@ import {
   getAnswer,
   getRandomArrayOfNumbers,
   getRandomeNumber,
-  getUserName,
   numberOfRounds,
+  startGame,
 } from '../src/index.js';
 
 const operations = ['+', '-', '*'];
+const rules = 'What is the result of the expression?';
 
 const getRandomeOperator = () => {
   const rand = getRandomeNumber(0, operations.length - 1);
@@ -52,9 +52,7 @@ const playRound = () => {
 };
 
 export default () => {
-  const userName = getUserName();
-  welcomeUser(userName);
-  console.log('What is the result of the expression?');
+  const userName = startGame(rules);
 
   let roundCount = numberOfRounds;
   while (roundCount > 0) {
